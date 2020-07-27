@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node ./bin/www",
-    "dev": "NODE_ENV=development nodemon ./bin/www"
+    "dev": "NODE_ENV=development nodemon ./bin/www",
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv-flow": "^3.2.0",
     "express": "~4.16.1",
+    "lodash": "^4.17.19",
     "mongoose": "^5.9.25",
     "morgan": "~1.9.1",
     "pluralize": "^8.0.0"

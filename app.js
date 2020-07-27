@@ -1,15 +1,13 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const logger = require('morgan');
 const loaders = require('./loaders');
 
-const app = express();
+const applicationServer = express();
 
-app.use(logger('combined'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+applicationServer.use(express.json());
+applicationServer.use(express.urlencoded({ extended: false }));
+applicationServer.use(cookieParser());
 
-loaders.init(app);
+const { httpServer } = loaders.init({ applicationServer });
 
-module.exports = app;
+module.exports = { applicationServer, httpServer };
