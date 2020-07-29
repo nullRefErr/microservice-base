@@ -1,11 +1,11 @@
 const serverLoader = require('./server');
 const routesLoader = require('./route');
-const mongoLoader = require('./mongo');
+const databaseLoader = require('./database');
 
 module.exports.init = ({ applicationServer }) => {
     const { httpServer } = serverLoader({ applicationServer });
     routesLoader({ applicationServer });
-    mongoLoader.init();
+    databaseLoader.init();
 
     return { httpServer };
 };
