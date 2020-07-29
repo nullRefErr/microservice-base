@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { plural } = require('pluralize');
-const AsyncWrapper = require('../utils/core/asyncWrapper');
-const { getStatus } = require('../utils/core/gracefulShutdown');
+const AsyncWrapper = require('../core/utils/asyncWrapper');
+const { getStatus } = require('../core/utils/gracefulShutdown');
 
 const filesToExclude = ['index'];
 const routesDir = `${process.cwd()}/routes`;

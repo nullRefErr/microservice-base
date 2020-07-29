@@ -1,7 +1,8 @@
+require('dotenv-flow').config();
 const express = require('express');
 const loaders = require('./loaders');
-const milddlewares = require('./milddlewares');
-const gracefulShutdown = require('./utils/core/gracefulShutdown');
+const milddlewares = require('./core/milddlewares');
+const gracefulShutdown = require('./core/utils/gracefulShutdown');
 
 const applicationServer = express();
 
