@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { plural } = require('pluralize');
 const AsyncWrapper = require('../utils/core/asyncWrapper');
+const { getStatus } = require('../utils/core/gracefulShutdown');
 
 const filesToExclude = ['index'];
 const routesDir = `${process.cwd()}/routes`;
@@ -10,6 +11,12 @@ module.exports = ({ applicationServer }) => {
 
     const filteredDir = dir.filter((x) => x !== filesToExclude.map((y) => y));
 
+    applicationServer.use('/', (req, res, next) => {
+        if (!getStatus().server) {
+            return next(new Error('Service unavailable'));
+        }
+        return next();
+    });
     filteredDir.forEach((route) => {
         const routeName = route
             .split('.')
