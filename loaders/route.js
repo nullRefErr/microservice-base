@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { plural } = require('pluralize');
 const AsyncWrapper = require('../core/utils/asyncWrapper');
+const { ServiceUnavailable, NotFound } = require('../core/types/error');
 const { getStatus } = require('../core/utils/gracefulShutdown');
 
 const filesToExclude = ['index'];
@@ -13,7 +14,7 @@ module.exports = ({ applicationServer }) => {
 
     applicationServer.use('/', (req, res, next) => {
         if (!getStatus().server) {
-            return next(new Error('Service unavailable'));
+            return next(new ServiceUnavailable());
         }
         return next();
     });
@@ -24,6 +25,6 @@ module.exports = ({ applicationServer }) => {
             .toLowerCase();
         applicationServer.use(`/${plural(routeName)}`, require(`${routesDir}/${routeName}`));
     });
-    applicationServer.use('*', (req, res, next) => next(new Error('Not Found')));
+    applicationServer.use('*', (req, res, next) => next(new NotFound()));
     applicationServer.use((err, req, res, next) => new AsyncWrapper({ err, req, res, next }).errorHandler());
 };

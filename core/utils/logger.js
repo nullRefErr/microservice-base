@@ -34,7 +34,7 @@ const logger = winston.createLogger({
     ),
     transports: [
         new winston.transports.Console({ level: 'verbose' }),
-        new winston.transports.File({ filename: 'combined.log.json', level: 'verbose' }),
+        new winston.transports.File({ filename: 'combined.log', level: 'verbose' }),
     ],
 });
 
