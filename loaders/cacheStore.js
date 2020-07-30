@@ -42,4 +42,5 @@ module.exports.init = () => {
 };
 
 module.exports.getClients = () => clients;
+
 module.exports.closeConnections = () => _.forOwn(clients, (conn) => conn.quit());

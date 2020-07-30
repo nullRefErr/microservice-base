@@ -9,7 +9,7 @@ let connectionTimeout;
 
 function throwTimeoutError() {
     connectionTimeout = setTimeout(() => {
-        throw Error('Mongo connection failed');
+        throw Error('Database connection failed');
     }, STORE_CONNECTION_TIMEOUT);
 }
 
