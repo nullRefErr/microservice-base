@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const logger = require('../core/utils/logger');
+const { STORE_CONNECTION_TIMEOUT } = require('../core/types/defaults');
 const config = require('../config');
 
 const clients = {};
@@ -9,7 +10,7 @@ let connectionTimeout;
 function throwTimeoutError() {
     connectionTimeout = setTimeout(() => {
         throw Error('Mongo connection failed');
-    }, 10000);
+    }, STORE_CONNECTION_TIMEOUT);
 }
 
 function instanceEventListeners({ conn }) {
