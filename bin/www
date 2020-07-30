@@ -3,29 +3,11 @@
 /**
  * Module dependencies.
  */
-
+require('dotenv-flow').config();
 const logger = require('../core/utils/logger');
 const { applicationServer, httpServer } = require('../app');
-
-const defaultPort = 3000;
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-    const parsedPort = parseInt(val);
-
-    if (Number.isNaN(parsedPort)) {
-        return defaultPort;
-    }
-
-    if (parsedPort >= 0) {
-        return parsedPort;
-    }
-
-    return defaultPort;
-}
+const config = require('../config');
+const port = config.PORT;
 
 /**
  * Event listener for HTTP httpServer "listening" event.
@@ -41,7 +23,6 @@ function onListening() {
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT);
 applicationServer.set('port', port);
 
 /**

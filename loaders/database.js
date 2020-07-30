@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const logger = require('../core/utils/logger');
+const config = require('../config');
 
 const clients = {};
 let connectionTimeout;
@@ -34,7 +35,7 @@ function instanceEventListeners({ conn }) {
 }
 
 module.exports.init = () => {
-    const mongoInstance = mongoose.createConnection('mongodb://localhost:1330', {
+    const mongoInstance = mongoose.createConnection(`${config.DATABASE.HOST}:${config.DATABASE.PORT}`, {
         useNewUrlParser: true,
         keepAlive: true,
         autoReconnect: true,

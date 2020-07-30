@@ -3,9 +3,6 @@ const winston = require('winston');
 
 const getJsonInfo = ({ info, isPretty }) => {
     let error;
-
-    // winston does not include error stack by default and error formatter does not work eighter,
-    // thus we need to capture stack from the error instances
     if (info.error instanceof Error) {
         error = {
             message: info.error.message,
@@ -37,7 +34,7 @@ const logger = winston.createLogger({
     ),
     transports: [
         new winston.transports.Console({ level: 'verbose' }),
-        new winston.transports.File({ filename: 'combined.log', level: 'verbose' }),
+        new winston.transports.File({ filename: 'combined.log.json', level: 'verbose' }),
     ],
 });
 
