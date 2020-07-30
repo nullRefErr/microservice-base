@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
+const logger = require('../core/utils/logger');
 
 const clients = {};
 let connectionTimeout;
@@ -12,22 +13,22 @@ function throwTimeoutError() {
 
 function instanceEventListeners({ conn }) {
     conn.on('connected', () => {
-        console.log('Mongo - connected');
+        logger.info('Database - Connection status: connected');
         clearTimeout(connectionTimeout);
     });
 
     conn.on('disconnected', () => {
-        console.log('Mongo - disconnected');
+        logger.info('Database - Connection status: disconnected');
         throwTimeoutError();
     });
 
     conn.on('reconnected', () => {
-        console.log('Mongo - reconnected');
+        logger.info('Database - Connection status: reconnected');
         clearTimeout(connectionTimeout);
     });
 
     conn.on('close', () => {
-        console.log('Mongo - closed');
+        logger.info('Database - Connection status: close ');
         clearTimeout(connectionTimeout);
     });
 }

@@ -1,3 +1,4 @@
+const logger = require('./logger');
 const database = require('../../loaders/database');
 
 const appStatus = {
@@ -7,7 +8,7 @@ const appStatus = {
 
 function kill(code) {
     setTimeout(() => {
-        console.log('Shutting Down');
+        logger.info('Application is shutting down');
         process.exit(code);
     }, 10000);
 }
@@ -20,7 +21,7 @@ function handleShutdown({ applicationServer }) {
         appStatus.database = false;
         kill(0);
     } catch (error) {
-        console.log(error);
+        logger.error('Error occurd while shutting dows application', { error });
         kill(1);
     }
 }

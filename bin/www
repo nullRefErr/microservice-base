@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 
+const logger = require('../core/utils/logger');
 const { applicationServer, httpServer } = require('../app');
 
 const defaultPort = 3000;
@@ -33,7 +34,7 @@ function normalizePort(val) {
 function onListening() {
     const addr = httpServer.address();
     const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
-    console.log(`Listening on ${bind}`);
+    logger.info('HTTP Server listening', { port: bind });
 }
 
 /**
@@ -57,11 +58,11 @@ function onError(error) {
     // handle specific listen errors with friendly messages
     switch (error.code) {
     case 'EACCES':
-        console.error(`${bind} requires elevated privileges`);
+        logger.error(`${bind} requires elevated privileges`);
         process.exit(1);
         break;
     case 'EADDRINUSE':
-        console.error(`${bind} is already in use`);
+        logger.error(`${bind} is already in use`);
         process.exit(1);
         break;
     default:
