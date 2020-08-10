@@ -7,6 +7,7 @@ require('dotenv-flow').config();
 const logger = require('../core/utils/logger');
 const { applicationServer, httpServer } = require('../app');
 const config = require('../config');
+
 const port = config.PORT;
 
 /**
