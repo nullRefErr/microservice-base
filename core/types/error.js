@@ -49,9 +49,32 @@ class BadRequest extends GenericError {
     }
 }
 
+class DatabaseError extends GenericError {
+    constructor(message = messages.DB_CONNECTION.message,
+        code = messages.DB_CONNECTION.code,
+        data) {
+        super(message, code, data);
+
+        this.httpStatus = -999;
+    }
+}
+
+class CacheStoreError extends GenericError {
+    constructor(message = messages.DB_CONNECTION.message,
+        code = messages.DB_CONNECTION.code,
+        data) {
+        super(message, code, data);
+
+        this.httpStatus = -999;
+    }
+}
+
+
 module.exports = {
     GenericError,
     ServiceUnavailable,
     NotFound,
     BadRequest,
+    DatabaseError,
+    CacheStoreError,
 };

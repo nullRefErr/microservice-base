@@ -2,6 +2,7 @@ const redis = require('redis');
 const _ = require('lodash');
 const { CACHESTORE } = require('../config');
 const { STORE_CONNECTION_TIMEOUT } = require('../core/types/defaults');
+const { CacheStoreError } = require('../core/types/error');
 const logger = require('../core/utils/logger');
 
 const clients = {};
@@ -9,7 +10,7 @@ let connectionTimeout;
 
 function throwTimeoutError() {
     connectionTimeout = setTimeout(() => {
-        throw Error('CacheStore connection failed');
+        throw new CacheStoreError();
     }, STORE_CONNECTION_TIMEOUT);
 }
 

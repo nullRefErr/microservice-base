@@ -22,4 +22,18 @@ module.exports = {
             en: 'Something went wrong while proccessing the request.',
         },
     },
+    DB_CONNECTION: {
+        code: -999,
+        message: {
+            tr: 'Veritabanı bağlantı hatası.',
+            en: 'Database connection error.',
+        },
+    },
+    CACHESTORE_CONNECTION: {
+        code: -999,
+        message: {
+            tr: 'Önbellek servisi bağlantı hatası.',
+            en: 'Cache service connection error.',
+        },
+    },
 };

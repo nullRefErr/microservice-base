@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const _ = require('lodash');
 const logger = require('../core/utils/logger');
 const { STORE_CONNECTION_TIMEOUT } = require('../core/types/defaults');
+const { DatabaseError } = require('../core/types/error');
 const config = require('../config');
 
 const clients = {};
@@ -9,7 +10,7 @@ let connectionTimeout;
 
 function throwTimeoutError() {
     connectionTimeout = setTimeout(() => {
-        throw Error('Database connection failed');
+        throw new DatabaseError();
     }, STORE_CONNECTION_TIMEOUT);
 }
 
