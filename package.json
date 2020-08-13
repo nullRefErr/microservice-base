@@ -1,5 +1,5 @@
 {
-  "name": "invedu-backend",
+  "name": "microservice-base",
   "version": "0.0.0",
   "private": true,
   "scripts": {
