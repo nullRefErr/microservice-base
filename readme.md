@@ -18,7 +18,7 @@ Simple and scaleable microservice template with Node.js MongoDb and Redis. Feel 
 - Graceful shutdown
 - MVC
 
-## ENV Example
+## ENV Example
 ```
 PORT=1338
 DATABASE_HOST=mongodb://localhost
