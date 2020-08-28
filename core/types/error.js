@@ -45,7 +45,7 @@ class BadRequest extends GenericError {
         data) {
         super(message, code, data);
 
-        this.httpStatus = badRequest;
+        this.httpStatus = code;
     }
 }
 
