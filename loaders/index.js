@@ -5,9 +5,9 @@ const cacheStoreLoader = require('./cacheStore');
 
 module.exports.init = ({ applicationServer }) => {
     const { httpServer } = serverLoader({ applicationServer });
-    routesLoader({ applicationServer });
     databaseLoader.init();
     cacheStoreLoader.init();
+    routesLoader({ applicationServer });
 
     return { httpServer };
 };
