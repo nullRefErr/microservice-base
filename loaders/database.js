@@ -37,7 +37,7 @@ function instanceEventListeners({ conn }) {
 }
 
 module.exports.init = () => {
-    const mongoInstance = mongoose.createConnection(`${config.DATABASE.HOST}:${config.DATABASE.PORT}`, {
+    const mongoInstance = mongoose.createConnection(`mongodb://${config.DATABASE.HOST}:${config.DATABASE.PORT}`, {
         useNewUrlParser: true,
         keepAlive: true,
         autoReconnect: true,
