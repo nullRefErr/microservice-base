@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - "./app:/src/app"
+    ports:
+      - "1338:1338"
+    links:
+      - "db:mongo"
+      - "cache:redis"
+    networks:
+        - test_nw
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+        - test_nw
+  cache:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - test_nw
+networks:
+  test_nw:
+    driver: bridge
+      
