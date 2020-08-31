@@ -37,7 +37,8 @@ function instanceEventListeners({ conn }) {
 }
 
 module.exports.init = () => {
-    const cacheInstance = redis.createClient(CACHESTORE.REDIS_CACHE.PORT, CACHESTORE.REDIS_CACHE.HOST);
+    console.log('CACHESTORE.REDIS_CACHE.HOST', CACHESTORE.REDIS_CACHE.HOST);
+    const cacheInstance = redis.createClient(CACHESTORE.REDIS_CACHE.HOST);
     clients.cacheInstance = cacheInstance;
     instanceEventListeners({ conn: cacheInstance });
 };
