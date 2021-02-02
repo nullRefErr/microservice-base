@@ -6,11 +6,14 @@ Simple and scaleable microservice template with Node.js MongoDb and Redis. Feel 
 - MongoDb ^4.0
 - Redis
 - Vs Code (theme: Noctis Obscuro)
+- Amazon Web Services Account
+- Mail Provider (Google, Yandex etc.)
 
 ## Features
 - Web Server with `Express & Native Http Server` (a socket server can be implemented easily)
 - Database with `MongoDb`
 - Cache Service with `Redis`
+- E-mail Integration with `Nodemail & AWS SeS`
 - Logging with `Winston`
 - Eslint with `Airbnb`
 - Custom Errors
