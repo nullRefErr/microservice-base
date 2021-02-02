@@ -1,32 +1,32 @@
 {
-    "extends": "airbnb-base",
-    "rules": {
-      "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
-      "no-underscore-dangle": ["error", { "allow": ["_id", "_doc"] }],
-      "comma-dangle": ["error", {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "ignore"
-      }],
-      "no-prototype-builtins": "warn",
-      "no-restricted-properties": "off",
-      "operator-linebreak": "off",
-      "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
-      "indent": ["error", 4],
-      "max-len": ["error", { "code": 120, "tabWidth": 4 }],
-      "global-require": 0,
-      "import/no-dynamic-require": 0,
-      "arrow-parens": ["warn", "always"],
-      "radix": ["warn", "as-needed"],
-      "no-plusplus": "off",
-      "object-curly-newline": ["error", { "ObjectPattern": { "multiline": true } }],
-      "no-param-reassign": ["error", { "props": false }],
-      "class-methods-use-this": 0
-    },
-    "env": {
-      "jest": true
-    }
+  "extends": "airbnb-base",
+  "rules": {
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+    "no-underscore-dangle": ["error", { "allow": ["_id", "_doc"] }],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore"
+    }],
+    "no-prototype-builtins": "warn",
+    "no-restricted-properties": "off",
+    "operator-linebreak": "off",
+    "linebreak-style": "off",
+    "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
+    "indent": ["error", 4],
+    "max-len": ["error", { "code": 120, "tabWidth": 4 }],
+    "global-require": 0,
+    "import/no-dynamic-require": 0,
+    "arrow-parens": ["warn", "always"],
+    "radix": ["warn", "as-needed"],
+    "no-plusplus": "off",
+    "object-curly-newline": ["error", { "ObjectPattern": { "multiline": true } }],
+    "no-param-reassign": ["error", { "props": false }],
+    "class-methods-use-this": 0
+  },
+  "env": {
+    "jest": true
   }
-  
+}
