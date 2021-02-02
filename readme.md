@@ -20,9 +20,17 @@ Simple and scaleable microservice template with Node.js MongoDb and Redis. Feel 
 
 ## ENV Example
 ```
+SECRETS_JWT=123456
 PORT=1338
-DATABASE_HOST=mongodb://localhost
-DATABASE_PORT=1330
-REDIS_CACHE_HOST=localhost
-REDIS_CACHE_PORT=1331
+DATABASE_HOST=mongodb+srv://{user}:{pass}@{host}/{dbName}?retryWrites=true&w=majority
+REDIS_CACHE_HOST=redis://{user}:{pass}@{host}:{port}
+SES_REGION=eu-central-1
+SES_API_VERSION=2010-12-01
+SES_USER_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
+SES_USER_SCREET_ACCESS_KEY=AWS_ACCESS_KEY
+EMAIL_SEND_LOCALLY=true
+EMAIL_HOST=smtp.tandex.ru
+EMAIL_PORT=465
+EMAIL_USER=user@example.com
+EMAIL_PASS=********
 ```
