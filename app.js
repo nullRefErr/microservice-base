@@ -1,7 +1,7 @@
 const express = require('express');
-const loaders = require('./loaders');
-const milddlewares = require('./core/milddlewares');
-const gracefulShutdown = require('./core/utils/gracefulShutdown');
+const loaders = require('./lib/loaders');
+const milddlewares = require('./lib/milddlewares');
+const gracefulShutdown = require('./lib/utils/gracefulShutdown');
 
 const applicationServer = express();
 
