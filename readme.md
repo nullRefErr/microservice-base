@@ -13,7 +13,7 @@ Simple and scaleable microservice template with Node.js MongoDb and Redis. Feel 
 - Web Server with `Express & Native Http Server` (a socket server can be implemented easily)
 - Database with `MongoDb`
 - Cache Service with `Redis`
-- E-mail Integration with `Nodemail & AWS SeS`
+- E-mail Integration with `Nodemailer & AWS SeS`
 - Logging with `Winston`
 - Eslint with `Airbnb`
 - Custom Errors
