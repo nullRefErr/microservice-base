@@ -11,6 +11,9 @@ services:
       - "cache:redis"
     networks:
         - test_nw
+    environment:
+      - DATABASE_HOST=mongodb://db:27017
+      - REDIS_CACHE_HOST=redis://cache:6379
   db:
     image: mongo:latest
     ports:
