@@ -4,10 +4,14 @@ module.exports = {
     },
     PORT: parseInt(process.env.PORT) || 1338,
     DATABASE: {
+        IS_ENABLED: !(process.env.DATABASE_HOST_IS_ENABLED &&
+        Boolean(process.env.DATABASE_HOST_IS_ENABLED) !== true),
         HOST: process.env.DATABASE_HOST || 'mongodb://localhost:27017',
     },
     CACHESTORE: {
         REDIS_CACHE: {
+            IS_ENABLED: !(process.env.REDIS_CACHE_HOST_IS_ENABLED &&
+            Boolean(process.env.REDIS_CACHE_HOST_IS_ENABLED) !== true),
             HOST: process.env.REDIS_CACHE_HOST || 'redis://localhost:6379',
         },
     },
@@ -20,6 +24,8 @@ module.exports = {
         },
     },
     EMAIL: {
+        IS_ENABLED: !(process.env.EMAIL_IS_ENABLED &&
+        Boolean(process.env.EMAIL_IS_ENABLED) !== true),
         HOST: process.env.EMAIL_HOST,
         PORT: Number.parseInt(process.env.EMAIL_PORT),
         USER: process.env.EMAIL_USER,
