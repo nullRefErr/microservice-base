@@ -4,11 +4,22 @@
  * Module dependencies.
  */
 require('dotenv-flow').config();
-const logger = require('../lib/utils/logger');
-const { applicationServer, httpServer } = require('../app');
-const config = require('../config');
+const express = require('express');
+const loaders = require('../loaders');
+const milddlewares = require('../milddlewares');
+const gracefulShutdown = require('../utils/gracefulShutdown');
+const logger = require('../utils/logger');
+const config = require('../../config');
 
 const port = config.PORT;
+const applicationServer = express();
+
+milddlewares({ applicationServer });
+applicationServer.disable('etag');
+
+const { httpServer } = loaders.init({ applicationServer });
+
+gracefulShutdown({ applicationServer: httpServer });
 
 /**
  * Event listener for HTTP httpServer "listening" event.
@@ -39,16 +50,16 @@ function onError(error) {
 
     // handle specific listen errors with friendly messages
     switch (error.code) {
-    case 'EACCES':
-        logger.error(`${bind} requires elevated privileges`);
-        process.exit(1);
-        break;
-    case 'EADDRINUSE':
-        logger.error(`${bind} is already in use`);
-        process.exit(1);
-        break;
-    default:
-        throw error;
+        case 'EACCES':
+            logger.error(`${bind} requires elevated privileges`);
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            logger.error(`${bind} is already in use`);
+            process.exit(1);
+            break;
+        default:
+            throw error;
     }
 }
 
