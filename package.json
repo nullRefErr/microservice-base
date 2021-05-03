@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./lib/bin/www",
+    "start": "node index",
     "dev": "nodemon ./lib/bin/www",
     "lint": "eslint --ignore-path .gitignore ."
   },
