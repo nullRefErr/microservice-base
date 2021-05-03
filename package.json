@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node index",
-    "dev": "nodemon ./lib/bin/www",
+    "dev": "nodemon index",
     "lint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
