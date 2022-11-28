@@ -1,6 +1,6 @@
 version: '3'
 services:
-  web:
+  api:
     build: .
     volumes:
       - "./app:/src/app"
@@ -9,11 +9,15 @@ services:
     links:
       - "db:mongo"
       - "cache:redis"
+    depends_on:
+      - db
+      - cache
     networks:
         - test_nw
     environment:
       - DATABASE_HOST=mongodb://db:27017
       - REDIS_CACHE_HOST=redis://cache:6379
+      - PORT=1338
   db:
     image: mongo:latest
     ports:
