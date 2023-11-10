@@ -8,4 +8,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => new AsyncWrapper({ err: undefined, req, res, next })
     .asyncHandler(dummyController.helloWorld(req.body)));
 
+router.get('/dbexample', (req, res, next) => new AsyncWrapper({ err: undefined, req, res, next })
+    .asyncHandler(dummyController.dbExample(req.body)));
+
 module.exports = router;

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 services:
   api:
     build: .
@@ -6,9 +6,6 @@ services:
       - "./app:/src/app"
     ports:
       - "1338:1338"
-    links:
-      - "db:mongo"
-      - "cache:redis"
     depends_on:
       - db
       - cache
