@@ -10,7 +10,7 @@ lib.Start({
     EMAIL_SEND_LOCALLY: true,
     EMAIL_USER: process.env.EMAIL_USER,
     MONGO_HOST: process.env.DATABASE_HOST,
-    MONGO_IS_ENABLED: false,
+    MONGO_IS_ENABLED: true,
     REDIS_HOST: process.env.REDIS_CACHE_HOST,
     REDIS_IS_ENABLED: false,
     SES_API_VERSION: process.env.SES_API_VERSION,
